@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomica · Compare</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/chart.css" />
+  </head>
+  <body>
+    <div class="compare-orb compare-orb-1"></div>
+    <div class="compare-orb compare-orb-2"></div>
+    <div class="compare-orb compare-orb-3"></div>
+
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <img
+            src="https://img.icons8.com/ios-filled/100/ffffff/atom-editor.png"
+            alt="Atom logo"
+          />
+        </div>
+        <span>Atomica</span>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/table">Explore Table</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/chart" class="active">Compare</a>
+      </nav>
+    </header>
+
+    <main class="compare-page">
+      <div class="page-header" style="margin-bottom: 48px">
+        <div class="eyebrow">
+          <span class="dot"></span
+          ><span id="eyebrowText">Electronegativity · Pauling Scale</span>
+        </div>
+        <h1 class="page-title">Compare <em>Elements</em></h1>
+        <p class="page-sub" id="pageSub">
+          Visualise how electronegativity shifts across periods and groups using
+          the Pauling scale.
+        </p>
+      </div>
+
+      <div class="chart-card">
+        <div class="controls">
+          <div class="ctrl-group">
+            <span class="ctrl-label">Compare Property</span>
+            <div class="cmp-dropdown" id="propertyDropdown">
+              <button class="cmp-dropdown-trigger" id="propertyTrigger">
+                <span id="propertyLabel">Electronegativity</span
+                ><span class="cmp-arrow">▾</span>
+              </button>
+              <div class="cmp-dropdown-menu">
+                <button class="active" data-property="electronegativity">
+                  <span class="menu-dot"></span>Electronegativity
+                </button>
+                <button data-property="ionization">
+                  <span class="menu-dot"></span>Ionization Energy
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="ctrl-group">
+            <span class="ctrl-label">Filter by Period</span>
+            <div class="cmp-dropdown" id="periodDropdown">
+              <button class="cmp-dropdown-trigger" id="periodTrigger">
+                <span id="periodLabel">All Periods</span
+                ><span class="cmp-arrow">▾</span>
+              </button>
+              <div class="cmp-dropdown-menu">
+                <button class="active" data-period="all">
+                  <span class="menu-dot"></span>All Periods
+                </button>
+                <button data-period="1">
+                  <span class="menu-dot"></span>Period 1
+                </button>
+                <button data-period="2">
+                  <span class="menu-dot"></span>Period 2
+                </button>
+                <button data-period="3">
+                  <span class="menu-dot"></span>Period 3
+                </button>
+                <button data-period="4">
+                  <span class="menu-dot"></span>Period 4
+                </button>
+                <button data-period="5">
+                  <span class="menu-dot"></span>Period 5
+                </button>
+                <button data-period="6">
+                  <span class="menu-dot"></span>Period 6
+                </button>
+                <button data-period="7">
+                  <span class="menu-dot"></span>Period 7
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="card-divider" />
+        <canvas id="enChart"></canvas>
+      </div>
+
+      <div class="info-grid" id="infoGrid"></div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+  <script src="/js/chart.js"></script>
+</html>

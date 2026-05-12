@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomica · Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/quiz.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <img
+            src="https://img.icons8.com/ios-filled/100/ffffff/atom-editor.png"
+            alt="Atom logo"
+          />
+        </div>
+        <span>Atomica</span>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/table">Explore Table</a>
+        <a href="/quiz" class="active">Quiz</a>
+        <a href="/chart">Compare</a>
+      </nav>
+    </header>
+
+    <section>
+      <div class="section-header">
+        <h2>Periodic Table <em>Quiz</em></h2>
+        <p>5 random questions · instant score</p>
+      </div>
+
+      <div class="quiz-container" id="take-quiz">
+        <h2 id="question"></h2>
+        <div id="options"></div>
+        <button id="next-btn" class="cta-btn primary" style="display: none">
+          Next
+        </button>
+      </div>
+
+      <div id="result">
+        <div class="result-box">
+          <h2 id="score"></h2>
+          <button id="restart-btn" class="cta-btn primary">Restart Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/quiz.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

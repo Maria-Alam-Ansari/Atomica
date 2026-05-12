@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomica · Periodic Table</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="stylesheet" href="/css/table.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <img
+            src="https://img.icons8.com/ios-filled/100/ffffff/atom-editor.png"
+            alt="Atom logo"
+          />
+        </div>
+        <span>Atomica</span>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/table" class="active">Explore Table</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/chart">Compare</a>
+        <!-- Filter dropdown — only on this page -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger">
+            Filter Elements <span class="dropdown-arrow">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <button data-category="all" class="active">All</button>
+            <button data-category="alkali-metal">Alkali Metal</button>
+            <button data-category="alkaline-earth-metal">
+              Alkaline Earth Metal
+            </button>
+            <button data-category="transition-metal">Transition Metal</button>
+            <button data-category="post-transition-metal">
+              Post-Transition Metal
+            </button>
+            <button data-category="metalloid">Metalloid</button>
+            <button data-category="diatomic-nonmetal">Diatomic Nonmetal</button>
+            <button data-category="polyatomic-nonmetal">
+              Polyatomic Nonmetal
+            </button>
+            <button data-category="noble-gas">Noble Gas</button>
+            <button data-category="lanthanide">Lanthanide</button>
+            <button data-category="actinide">Actinide</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section>
+      <div class="section-header">
+        <h2>Explore the <em>Elements</em></h2>
+        <p>118 elements · click to explore</p>
+        <div class="section-desc">
+          Click on any element to discover its atomic number, symbol, electron
+          configuration, physical properties, spectral data, and much more.
+        </div>
+      </div>
+
+      <!-- Mobile filter — shown only on small screens -->
+      <div class="mobile-filter-bar">
+        <span class="mobile-filter-label">Filter:</span>
+        <select class="mobile-filter-select" id="mobileFilterSelect">
+          <option value="all">All Elements</option>
+          <option value="alkali-metal">Alkali Metal</option>
+          <option value="alkaline-earth-metal">Alkaline Earth Metal</option>
+          <option value="transition-metal">Transition Metal</option>
+          <option value="post-transition-metal">Post-Transition Metal</option>
+          <option value="metalloid">Metalloid</option>
+          <option value="diatomic-nonmetal">Diatomic Nonmetal</option>
+          <option value="polyatomic-nonmetal">Polyatomic Nonmetal</option>
+          <option value="noble-gas">Noble Gas</option>
+          <option value="lanthanide">Lanthanide</option>
+          <option value="actinide">Actinide</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <div id="table"></div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/table.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

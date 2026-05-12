@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomica</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon">
+          <img
+            src="https://img.icons8.com/ios-filled/100/ffffff/atom-editor.png"
+            alt="Atom logo"
+          />
+        </div>
+        <span>Atomica</span>
+      </div>
+      <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/table">Explore Table</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/chart">Compare</a>
+      </nav>
+    </header>
+
+    <section class="hero-container" id="hero">
+      <div class="content">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          <span>118 Elements · Fully Interactive</span>
+        </div>
+        <h1 class="headline">
+          <span class="line line-1">An Interactive</span>
+          <span class="line line-2">Periodic<em> Table</em></span>
+        </h1>
+        <p class="subtext">
+          Browse all chemical elements in a beautifully structured layout. Click
+          any element to view atomic number, mass, and properties.
+        </p>
+        <div class="cta-group">
+          <button
+            class="cta-btn primary"
+            onclick="window.location.href = '/table'"
+          >
+            <span>Explore Table</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="stats-row">
+          <div class="stat">
+            <span class="stat-num">118</span
+            ><span class="stat-label">Elements</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">7</span
+            ><span class="stat-label">Periods</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">18</span
+            ><span class="stat-label">Groups</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="model">
+        <div class="model-wrapper">
+          <div class="model-glow"></div>
+          <model-viewer
+            id="threed"
+            src="/model/3D.glb"
+            auto-rotate
+            camera-controls
+            background-color="transparent"
+          ></model-viewer>
+          <div class="float-card card-h">
+            <span class="fc-num">1</span><span class="fc-sym">H</span
+            ><span class="fc-name">Hydrogen</span>
+          </div>
+          <div class="float-card card-au">
+            <span class="fc-num">79</span><span class="fc-sym">Au</span
+            ><span class="fc-name">Gold</span>
+          </div>
+          <div class="float-card card-u">
+            <span class="fc-num">92</span><span class="fc-sym">U</span
+            ><span class="fc-name">Uranium</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

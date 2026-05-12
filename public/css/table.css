@@ -1,0 +1,449 @@
+:root {
+  --alkali-metal: #4cc9f0;
+  --alkaline-earth-metal: #ffff00;
+  --transition-metal: #ff073a;
+  --metalloid: #b026ff;
+  --post-transition-metal: #7cfc00;
+  --polyatomic-nonmetal: #00ffcc;
+  --diatomic-nonmetal: #f72585;
+  --noble-gas: #00e5ff;
+  --lanthanide: #ff9966;
+  --actinide: #00f5d4;
+  --unknown: #6c63ff;
+}
+
+section {
+  padding: 140px 40px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h2 {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.section-header h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #a09aff, #6c63ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-header p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.section-desc {
+  max-width: 620px;
+  margin: 16px auto 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+
+/* ─── Filter dropdown (desktop nav, table page only) ─── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-trigger {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-dropdown-trigger:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+.nav-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 210px;
+  background: #0a0a0f;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 6px;
+  z-index: 1100;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-dropdown.open .nav-dropdown-menu {
+  display: flex;
+}
+
+.nav-dropdown-menu button {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.72rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 0.05em;
+  transition: all 0.15s;
+  width: 100%;
+}
+.nav-dropdown-menu button::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 9px;
+  background: currentColor;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+.nav-dropdown-menu button[data-category="all"] {
+  --item-color: #ffffff;
+}
+.nav-dropdown-menu button[data-category="alkali-metal"] {
+  --item-color: var(--alkali-metal);
+}
+.nav-dropdown-menu button[data-category="alkaline-earth-metal"] {
+  --item-color: var(--alkaline-earth-metal);
+}
+.nav-dropdown-menu button[data-category="transition-metal"] {
+  --item-color: var(--transition-metal);
+}
+.nav-dropdown-menu button[data-category="post-transition-metal"] {
+  --item-color: var(--post-transition-metal);
+}
+.nav-dropdown-menu button[data-category="metalloid"] {
+  --item-color: var(--metalloid);
+}
+.nav-dropdown-menu button[data-category="diatomic-nonmetal"] {
+  --item-color: var(--diatomic-nonmetal);
+}
+.nav-dropdown-menu button[data-category="polyatomic-nonmetal"] {
+  --item-color: var(--polyatomic-nonmetal);
+}
+.nav-dropdown-menu button[data-category="noble-gas"] {
+  --item-color: var(--noble-gas);
+}
+.nav-dropdown-menu button[data-category="lanthanide"] {
+  --item-color: var(--lanthanide);
+}
+.nav-dropdown-menu button[data-category="actinide"] {
+  --item-color: var(--actinide);
+}
+
+.nav-dropdown-menu button:hover,
+.nav-dropdown-menu button.active {
+  color: var(--item-color);
+  border-color: var(--item-color);
+  background: color-mix(in srgb, var(--item-color) 8%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--item-color) 25%, transparent);
+}
+.nav-dropdown-menu button.active::before {
+  opacity: 1;
+}
+
+/* ─── Mobile filter select ─── */
+.mobile-filter-bar {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.mobile-filter-label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mobile-filter-select {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.82rem;
+  padding: 8px 32px 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: #0a0a0f;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236c63ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: border-color 0.2s;
+}
+.mobile-filter-select:focus {
+  border-color: rgba(108, 99, 255, 0.5);
+}
+
+/* ─── Table wrapper ─── */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(108, 99, 255, 0.35) transparent;
+}
+.table-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.35);
+  border-radius: 2px;
+}
+
+/* ─── Grid ─── */
+#table {
+  display: grid;
+  grid-template-columns: repeat(18, 56px);
+  grid-template-rows: repeat(10, 66px);
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* ─── Element card ─── */
+.element {
+  position: relative;
+  border-radius: 6px;
+  padding: 5px 5px 4px;
+  cursor: pointer;
+  background: #000;
+  border: 1px solid var(--cat-color);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--cat-color) 30%, transparent);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    opacity 0.25s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.element:hover {
+  transform: scale(1.2) translateZ(0);
+  z-index: 200;
+  box-shadow:
+    0 0 8px color-mix(in srgb, var(--cat-color) 55%, transparent),
+    0 0 18px color-mix(in srgb, var(--cat-color) 20%, transparent),
+    0 6px 18px rgba(0, 0, 0, 0.65);
+}
+.element.dimmed {
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.el-number {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1;
+  font-family: "DM Sans", sans-serif;
+}
+.el-symbol {
+  font-family: "Syne", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: color-mix(in srgb, var(--cat-color) 82%, white 18%);
+  text-shadow:
+    0 0 4px color-mix(in srgb, var(--cat-color) 70%, transparent),
+    0 0 10px color-mix(in srgb, var(--cat-color) 25%, transparent);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.el-name {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+}
+.el-mass {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: right;
+  font-family: "DM Sans", sans-serif;
+}
+
+.cat-alkali-metal {
+  --cat-color: var(--alkali-metal);
+}
+.cat-alkaline-earth-metal {
+  --cat-color: var(--alkaline-earth-metal);
+}
+.cat-transition-metal {
+  --cat-color: var(--transition-metal);
+}
+.cat-metalloid {
+  --cat-color: var(--metalloid);
+}
+.cat-post-transition-metal {
+  --cat-color: var(--post-transition-metal);
+}
+.cat-polyatomic-nonmetal {
+  --cat-color: var(--polyatomic-nonmetal);
+}
+.cat-diatomic-nonmetal {
+  --cat-color: var(--diatomic-nonmetal);
+}
+.cat-noble-gas {
+  --cat-color: var(--noble-gas);
+}
+.cat-lanthanide {
+  --cat-color: var(--lanthanide);
+}
+.cat-actinide {
+  --cat-color: var(--actinide);
+}
+.cat-unknown {
+  --cat-color: var(--unknown);
+}
+
+.lanthanide-placeholder,
+.actinide-placeholder {
+  border-radius: 6px;
+  border: 1px dashed;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.44rem;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  opacity: 0.5;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+.lanthanide-placeholder {
+  color: var(--lanthanide);
+  border-color: var(--lanthanide);
+}
+.actinide-placeholder {
+  color: var(--actinide);
+  border-color: var(--actinide);
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — TABLE PAGE
+   ════════════════════════════════════════════ */
+
+/* Tablet 641–1200px: scale grid to fit */
+@media (max-width: 1200px) and (min-width: 641px) {
+  section {
+    padding: 120px 16px 80px;
+  }
+  .table-wrapper {
+    overflow-x: visible;
+    justify-content: flex-start;
+  }
+  /* JS sets --table-scale; fallback 0.65 covers ~850px screens */
+  #table {
+    transform-origin: top left;
+    transform: scale(var(--table-scale, 0.65));
+    margin-right: calc((1076px * (1 - var(--table-scale, 0.65))) * -1);
+    margin-bottom: calc((696px * (1 - var(--table-scale, 0.65))) * -1);
+  }
+  .mobile-filter-bar {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .nav-dropdown {
+    display: none;
+  }
+}
+
+/* Mobile ≤ 640px: small cells + horizontal scroll */
+@media (max-width: 640px) {
+  section {
+    padding: 100px 0 80px;
+  }
+  .section-header {
+    padding: 0 16px;
+  }
+  .section-desc {
+    font-size: 0.82rem;
+    padding: 0 16px;
+  }
+
+  .mobile-filter-bar {
+    display: flex;
+  }
+  .nav-dropdown {
+    display: none !important;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #table {
+    grid-template-columns: repeat(18, 40px);
+    grid-template-rows: repeat(10, 50px);
+    gap: 3px;
+    transform: none;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .el-symbol {
+    font-size: 0.78rem;
+  }
+  .el-name {
+    font-size: 0.42rem;
+  }
+  .el-number {
+    font-size: 0.44rem;
+  }
+  .el-mass {
+    display: none;
+  }
+  .element:hover {
+    transform: scale(1.08) translateZ(0);
+  }
+}
